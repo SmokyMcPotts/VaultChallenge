@@ -7,6 +7,8 @@ const startingBalance = stdlib.parseCurrency(100);
 const accBob = await stdlib.newTestAccount(startingBalance);
 const accAlice = await stdlib.newTestAccount(stdlib.parseCurrency(10000));
 
+const suStr = stdlib.standardUnit;
+
 console.log('Hello, Alice and Bob!');
 
 console.log('Launching...');
@@ -17,8 +19,8 @@ const choiceArray = [`I'm not here`, `I'm still here`];
 
 const getBalance = async (who) => stdlib.formatCurrency(await stdlib.balanceOf(who));
 
-console.log(`Alice's account balance before is: ${await getBalance(accAlice)}.`);
-console.log(`Bob's account balance before is: ${await getBalance(accBob)}.`);
+console.log(`Alice's account balance before is: ${await getBalance(accAlice)} ${suStr}.`);
+console.log(`Bob's account balance before is: ${await getBalance(accBob)} ${suStr}.`);
 
 const shared = () => ({
   showCountdown: (time) => {
@@ -44,7 +46,7 @@ await Promise.all([
     ...stdlib.hasRandom,
     ...shared(),
     acceptTerms: (value) => {
-      console.log(`Bob accepts the terms of the contract for ${stdlib.formatCurrency(value)}.`);
+      console.log(`Bob accepts the terms of the contract for ${stdlib.formatCurrency(value)} ${suStr}.`);
       return true;
     },
     // implement Bob's interact object here
