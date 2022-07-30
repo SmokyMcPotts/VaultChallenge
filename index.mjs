@@ -53,7 +53,7 @@ await Promise.all([
   }),
 ]);
 
-console.log(`Alice's account balance after is: ${await getBalance(accAlice)}.`);
-console.log(`Bob's account balance after is: ${await getBalance(accBob)}.`);
+console.log(`Alice's account balance after is: ${await getBalance(accAlice)} ${suStr}.`);
+console.log(`Bob's account balance after is: ${await getBalance(accBob)} ${suStr}.`);
 
 console.log('Goodbye, Alice and Bob!');
